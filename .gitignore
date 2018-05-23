@@ -9,6 +9,7 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+bskin.txt
 
 # Build results
 [Dd]ebug/
