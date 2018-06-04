@@ -44,12 +44,13 @@ namespace DataSkinVariableCreator
         static void WriteVariablesToScriptElement(string path, SkinXmlStringProvider skinXmlStringProvider)
         {
             StreamWriter writer = new StreamWriter(path);
-            writer.WriteLine("<script>");
-            writer.WriteLine("var data={}");
+            var varName= "themeSkinVariables";
+            writer.WriteLine("<script type='application/javascript'>");
+            writer.WriteLine($"var {varName} ={{}};");
             foreach(var variable in GetVariables(skinXmlStringProvider))
             {
                 var variableName = variable.Attribute("name").Value;
-                writer.WriteLine("data['" + variableName + "']='" + GetDataTag(variableName) + "';");
+                writer.WriteLine($"{varName}['{variableName}']='{GetDataTag(variableName)}';");
             }
 
             writer.WriteLine("</script>");
